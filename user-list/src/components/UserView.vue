@@ -87,7 +87,7 @@ const addNewData = () => {
                     </div>
                 </div>
                 <div v-if="editForm" class="edit-container">
-                    <CustomInput placeholder="Add phone" v-model="editData.tel" />
+                    <CustomInput placeholder="+38XXXXXXXXXX" v-model="editData.tel" />
                     <CustomInput placeholder="Add address" v-model="editData.address" />
                     <CustomButton @click.native="addNewData" :title="'Add info'" :type="'btn-sucess'" />
                 </div>

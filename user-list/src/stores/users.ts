@@ -20,7 +20,6 @@ export const useUsersStore = defineStore("users", {
   }),
   actions: {
     async fetchUsers(): Promise<void> {
-      // this.users = await getUsers();
       const users = await getUsers();
       if (this.searchtoken?.length > 0) {
         this.users = users.filter(el => el.first_name.includes(this.searchtoken) || el.last_name.includes(this.searchtoken) || el.email.includes(this.searchtoken))
@@ -42,19 +41,13 @@ export const useUsersStore = defineStore("users", {
       await deleteUser(id);
       await this.fetchUsers()
     },
-
-    // спробувати genSinglUser() за апі
-     //  чи працює всяка штука 
     addNewDataToUser(newdata: { tel: string; address: string }): void {
       const { tel, address } = newdata;
       this.user.tel = tel;
       this.user.address = address;
-      // console.log(this.users[id]);
     },
     setSelectedUser(id: number): void {
       this.user = this.users.find((el) => el.id == id);
-      // console.log(this.user);
-      // this.modalVisible = true;
     },
     setModalVizibility(): void {
       this.user = null
