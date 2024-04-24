@@ -6,21 +6,15 @@ defineProps({
     },
     placeholder: {
         type: String,
-        default:''
+        default: ''
     }
 })
 </script>
 
 <template>
-    <div class="input_wrapper">
-        <input 
-            :placeholder="placeholder"
-            :value="modelValue" 
-            v-bind="$attrs" 
-            @input=" $emit('update:modelValue', $event.target.value)"
-            class="input_field" 
-            type="text">
-    </div>
+<div class="input_wrapper">
+    <input :placeholder="placeholder" :value="modelValue" v-bind="$attrs" @input=" $emit('update:modelValue', $event.target.value)" class="input_field" type="text">
+</div>
 </template>
 
 

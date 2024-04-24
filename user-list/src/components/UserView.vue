@@ -67,33 +67,32 @@ const addNewData = () => {
     editData.value.tel = '';
     editData.value.address = '';
 }
-
 </script>
 
 
 <template>
-    <Transition name="modal">
-        <div v-if="usersStore.user?.id" class="modal-mask">
-            <div class="modal-container">
-                <div class="modal-info-container">
-                    <img class="modal-avatar" :src="user.avatar ?? 'https://reqres.in/img/faces/1-image.jpg'" alt="">
-                    <div class="modal_info-wrapper">
-                        <CustomButton :type="'btn'" @click.native="usersStore.setModalVizibility" :title="'X'" />
-                        <h1>{{ user.first_name }}</h1>
-                        <h2>Email: {{ user.email }}</h2>
-                        <p>Tel: {{ user.tel }}</p>
-                        <p>Address: {{ user.address }}</p>
-                        <CustomButton  @click.native="editForm = !editForm" :title="buttonText" />
-                    </div>
-                </div>
-                <div v-if="editForm" class="edit-container">
-                    <CustomInput placeholder="+38XXXXXXXXXX" v-model="editData.tel" />
-                    <CustomInput placeholder="Add address" v-model="editData.address" />
-                    <CustomButton @click.native="addNewData" :title="'Add info'" :type="'btn-sucess'" />
+<Transition name="modal">
+    <div v-if="usersStore.user?.id" class="modal-mask">
+        <div class="modal-container">
+            <div class="modal-info-container">
+                <img class="modal-avatar" :src="user.avatar ?? 'https://reqres.in/img/faces/1-image.jpg'" alt="">
+                <div class="modal_info-wrapper">
+                    <CustomButton :type="'btn'" @click.native="usersStore.setModalVizibility" :title="'X'" />
+                    <h1>{{ user.first_name }}</h1>
+                    <h2>Email: {{ user.email }}</h2>
+                    <p>Tel: {{ user.tel }}</p>
+                    <p>Address: {{ user.address }}</p>
+                    <CustomButton @click.native="editForm = !editForm" :title="buttonText" />
                 </div>
             </div>
+            <div v-if="editForm" class="edit-container">
+                <CustomInput placeholder="+38XXXXXXXXXX" v-model="editData.tel" />
+                <CustomInput placeholder="Add address" v-model="editData.address" />
+                <CustomButton @click.native="addNewData" :title="'Add info'" :type="'btn-sucess'" />
+            </div>
         </div>
-    </Transition>
+    </div>
+</Transition>
 </template>
 
 
@@ -165,7 +164,7 @@ const addNewData = () => {
 
 
 
-<!-- <script setup>
+<!--<script setup>
 import { computed, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { useUsersStore } from "../stores/users";
@@ -181,16 +180,16 @@ const user = computed(() => {
 </script>
 
 <template>
-    <div class="user_modal_wrapper">
-        <img class="avatar" :src="user.avatar" alt="">
-        <div>
-            <h1>{{ user.first_name }}</h1>
-            <a :href="`mailto:${user.email}`" target="_blank">
-                <p>{{ user.email }}</p>
-            </a>
-           
-        </div>
+<div class="user_modal_wrapper">
+    <img class="avatar" :src="user.avatar" alt="">
+    <div>
+        <h1>{{ user.first_name }}</h1>
+        <a :href="`mailto:${user.email}`" target="_blank">
+            <p>{{ user.email }}</p>
+        </a>
+
     </div>
+</div>
 </template>
 
 
@@ -216,4 +215,4 @@ h1 {
 .user_wrapper img {
     border-radius: 50%;
 }
-</style> -->
+</style>-->

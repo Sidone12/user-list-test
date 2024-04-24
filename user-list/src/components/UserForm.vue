@@ -6,7 +6,7 @@ import { useUsersStore } from "../stores/users";
 
 const usersStore = useUsersStore();
 
-const formData = ref<FormData>({
+const formData = ref < FormData > ({
     first_name: '',
     email: '',
 });
@@ -35,15 +35,14 @@ const handleSubmit = () => {
     formData.value.first_name = '';
     formData.value.email = '';
 };
-
 </script>
 
 <template>
-    <form @submit.prevent="handleSubmit" class="form_wrapper">
-        <CustomInput placeholder="First Name" v-model="formData.first_name" />
-        <CustomInput placeholder="Email" v-model="formData.email" />
-        <button class="btn" type="submit">Create</button>
-    </form>
+<form @submit.prevent="handleSubmit" class="form_wrapper">
+    <CustomInput placeholder="First Name" v-model="formData.first_name" />
+    <CustomInput placeholder="Email" v-model="formData.email" />
+    <button class="btn" type="submit">Create</button>
+</form>
 </template>
 
 <style scoped>

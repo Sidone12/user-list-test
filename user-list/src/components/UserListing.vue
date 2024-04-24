@@ -11,24 +11,22 @@ const users = computed(() => {
 </script>
 
 <template>
-    <div>
-        <h1 v-if="usersStore.users?.length > 0">This is our users:</h1>
-        <h1 v-if="usersStore.users?.length < 1">No users</h1>
-        <div class="container_wrapper">
+<div>
+    <h1 v-if="usersStore.users?.length > 0">This is our users:</h1>
+    <h1 v-if="usersStore.users?.length < 1">No users</h1>
+    <div class="container_wrapper">
 
-            <div v-for="(user) in usersStore.users" :key="user.id" style="width: 200px;" class="user_wrapper"
-                @click="usersStore.setSelectedUser(user.id)">
-                <img :src="user.avatar ?? 'https://reqres.in/img/faces/1-image.jpg'" alt="">
-                <h2>{{ user.first_name }}</h2>
-                <a :href="`mailto:${user.email}`" target="_blank">
-                    <p>{{ user.email }}</p>
-                </a>
+        <div v-for="(user) in usersStore.users" :key="user.id" style="width: 200px;" class="user_wrapper" @click="usersStore.setSelectedUser(user.id)">
+            <img :src="user.avatar ?? 'https://reqres.in/img/faces/1-image.jpg'" alt="">
+            <h2>{{ user.first_name }}</h2>
+            <a :href="`mailto:${user.email}`" target="_blank">
+                <p>{{ user.email }}</p>
+            </a>
 
-                <CustomButton :type="'danger-btn'" @click.native.stop="usersStore.deleteSingleUser(user.id)"
-                    :title="'delete'" />
-            </div>
+            <CustomButton :type="'danger-btn'" @click.native.stop="usersStore.deleteSingleUser(user.id)" :title="'delete'" />
         </div>
     </div>
+</div>
 </template>
 
 
